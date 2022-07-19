@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("input[name='name']").blur(verifyName);
+	});
+	function verifyName(){
+		var name = $("input[name='name']").val();
+		if(name =="" || name == null){
+			alert("姓名不能为空");
+		}
+	}
+	$(function(){
+		$("input[name='sex']").blur(verifySex);
+	});
+	function verifySex(){
+		var sex = $("input[name='sex']").val();
+		if(sex =="" || sex == null){
+			alert("sex不能为空");
+		}
+	}
+	$(function(){
+		$("input[name='age']").blur(verifyAge);
+	});
+	function verifyAge(){
+		var age = $("input[name='age']").val();
+		if(age =="" || age == null){
+			alert("age不能为空");
+		}
+	}
+	$(function(){
+		$("input[name='note']").blur(verifyNote);
+	});
+	function verifyNote(){
+		var note = $("input[name='note']").val();
+		if(note =="" || note == null){
+			alert("备注不能为空");
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="" th:action="@{~/add}" method="post">
+		姓       名:<input name="name" type="text"><br>
+		性       别:<input name="sex" type="text"><br>
+		年        龄:<input name="age" type="text"><br>
+		出生日期:<input name="birth_date" type="date"><br>
+		备        注:<input name="note" type="text"><br>
+		<input type="submit" value="添加">
+	</form>
+</body>
+</html>

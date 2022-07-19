@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="" th:action="@{~/edit}" method="post">
+		序       号:<input name="id" type="text" th:value="${student.id}"><br>
+		姓       名:<input name="name" type="text" th:value="${student.name}"><br>
+		性       别:<input name="sex" type="text" th:value="${student.sex}"><br>
+		年        龄:<input name="age" type="text" th:value="${student.age}"><br>
+		出生日期:<input name="birth_date" type="date" th:value="${student.birth_date}"><br>
+		备        注:<input name="note" type="text" th:value="${student.note}"><br>
+		<input type="submit" value="更改">
+	</form>
+</body>
+</html>

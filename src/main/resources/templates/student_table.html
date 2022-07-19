@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("input[name='name']").blur(verifyName);
+});
+function verifyName(){
+	var name = $("input[name='name']").val();
+	if(name.length>1){
+		alert("超出长度范围(长度只能为1个字符)");
+	}
+}
+</script>
+</head>
+<body>
+	<a th:href="@{~/toAdd}">添加新的学生信息</a>
+	<form action="" th:action="@{~/toQuery}">
+		<input name="name" type="text" placeholder="请输入模糊查找的名字">
+		<input type="submit" value="查询">
+	</form>
+	<table border="1px">
+		<tr>
+			<th>序号</th>
+			<th>姓名</th>
+			<th>性别{男(1)=true,女(0)=false}</th>
+			<th>年龄</th>
+			<th>出生日期</th>
+			<th>备注</th>
+			<th>编辑</th>
+		</tr>
+		<tr th:each="l : ${list}">
+			<td th:text="${l.id}"></td>
+			<td th:text="${l.name}"></td>
+			<td th:text="${l.sex}"></td>
+			<td th:text="${l.age}"></td>
+			<td th:text="${l.birth_date}"></td>
+			<td th:text="${l.note}"></td>
+			<td>
+				<a th:href="@{'~/toDelete/'+${l.id}}">删</a>
+				<a th:href="@{'~/toEdit/'+${l.id}}">改</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

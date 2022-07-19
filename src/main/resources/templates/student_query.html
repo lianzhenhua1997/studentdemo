@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="" th:action="@{~/}" method="post">
+		<table border="1px">
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+				<th>出生日期</th>
+				<th>备注</th>
+			</tr>
+			<tr th:each="t : ${sd}">
+				<td th:text="${t.id}"></td>
+				<td th:text="${t.name}"></td>
+				<td th:text="${t.sex}"></td>
+				<td th:text="${t.age}"></td>
+				<td th:text="${t.birth_date}"></td>
+				<td th:text="${t.note}"></td>
+			</tr>
+		</table>
+		<input type="submit" value="返回">
+	</form>
+</body>
+</html>
